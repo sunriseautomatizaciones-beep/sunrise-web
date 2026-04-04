@@ -194,9 +194,8 @@ ul { list-style: none; }
   width: 36px;
   height: 36px;
   object-fit: contain;
-  background: white;
-  border-radius: 6px;
-  padding: 2px;
+  filter: invert(1);
+  mix-blend-mode: screen;
 }
 .nav__logo-text {
   font-family: var(--font-head);
@@ -1020,10 +1019,9 @@ footer {
   width: 32px;
   height: 32px;
   object-fit: contain;
-  background: white;
-  border-radius: 5px;
-  padding: 2px;
-  opacity: 0.8;
+  filter: invert(1);
+  mix-blend-mode: screen;
+  opacity: 0.9;
 }
 .footer__logo-text {
   font-family: var(--font-head);

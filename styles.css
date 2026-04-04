@@ -194,8 +194,9 @@ ul { list-style: none; }
   width: 36px;
   height: 36px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
-  background: transparent;
+  background: white;
+  border-radius: 6px;
+  padding: 2px;
 }
 .nav__logo-text {
   font-family: var(--font-head);
@@ -1019,8 +1020,10 @@ footer {
   width: 32px;
   height: 32px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.6;
+  background: white;
+  border-radius: 5px;
+  padding: 2px;
+  opacity: 0.8;
 }
 .footer__logo-text {
   font-family: var(--font-head);

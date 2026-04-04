@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunrise Automatizaciones — Automatiza tu negocio desde 150€</title>
+  <meta name="description" content="Automatizamos los procesos de tu empresa con n8n y te creamos una web profesional. Sin agencias caras. Diagnóstico gratuito en 20 minutos." />
+  <meta name="keywords" content="automatización n8n, páginas web PYMEs, automatizar procesos, España, Sunrise Automatizaciones" />
+  <meta property="og:title" content="Sunrise Automatizaciones — Automatiza tu negocio desde 150€" />
+  <meta property="og:description" content="Conectamos tus herramientas y automatizamos tus procesos. Diagnóstico gratuito de 20 minutos." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ NAV ═══ -->
+<nav id="nav">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo" aria-label="Sunrise Automatizaciones">
+      <img src="assets/logo.png" alt="Sunrise" class="nav__logo-img" />
+      <div class="nav__logo-text">
+        Sunrise
+        <span>Automatizaciones</span>
+      </div>
+    </a>
+
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contacto" class="btn btn--purple nav__cta">Diagnóstico gratis →</a></li>
+    </ul>
+
+    <button class="nav__burger" id="burger" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════ HERO ═══ -->
+<section id="hero">
+  <div id="particles"></div>
+  <div class="container">
+    <div class="hero__inner">
+
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          Automatización para PYMEs en España
+        </div>
+
+        <h1 class="hero__title">
+          ¿Tu equipo pierde horas en tareas que podrían<br>
+          <em>hacerse solas?</em>
+        </h1>
+
+        <p class="hero__sub">
+          Automatizamos tus procesos con n8n para que ahorres tiempo real — sin agencias caras, sin código, sin complicaciones.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#contacto" class="btn btn--purple btn--lg">Quiero mi diagnóstico gratuito →</a>
+          <a href="#servicios" class="btn btn--outline">Ver servicios</a>
+        </div>
+
+        <p class="hero__microcopy">20 minutos · Sin compromiso · Sin coste</p>
+
+        <div class="hero__trust" style="margin-top:28px">
+          <div class="hero__trust-item">
+            <span class="hero__trust-icon">⚡</span>
+            Entrega en días, no meses
+          </div>
+          <div class="hero__trust-item">
+            <span class="hero__trust-icon">💬</span>
+            Hablas directamente con Massin
+          </div>
+          <div class="hero__trust-item">
+            <span class="hero__trust-icon">✅</span>
+            Resultados medibles de antemano
+          </div>
+        </div>
+      </div>
+
+      <!-- Workflow SVG illustration -->
+      <div class="hero__visual">
+        <svg class="workflow-svg" viewBox="0 0 520 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="rgba(155,48,255,0.6)" />
+            </marker>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#9B30FF" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#9B30FF" stop-opacity="0.2"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Background glow blobs -->
+          <ellipse cx="260" cy="200" rx="200" ry="160" fill="rgba(75,0,130,0.12)" />
+
+          <!-- Connecting lines with animation -->
+          <!-- Formulario → n8n -->
+          <path d="M 130 120 C 180 120, 200 190, 260 190" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)" class="flow-line"/>
+          <!-- Email → n8n -->
+          <path d="M 130 200 L 240 200" stroke="rgba(155,48,255,0.5)" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)" class="flow-line" style="animation-delay:.3s"/>
+          <!-- WhatsApp → n8n -->
+          <path d="M 130 280 C 180 280, 200 210, 260 210" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)" class="flow-line" style="animation-delay:.6s"/>
+          <!-- n8n → CRM -->
+          <path d="M 320 180 C 360 180, 370 130, 400 120" stroke="rgba(155,48,255,0.5)" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)" class="flow-line" style="animation-delay:.9s"/>
+          <!-- n8n → Sheets -->
+          <path d="M 320 200 L 390 200" stroke="rgba(155,48,255,0.5)" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)" class="flow-line" style="animation-delay:1.2s"/>
+          <!-- n8n → Notificación -->
+          <path d="M 320 220 C 360 220, 370 270, 400 280" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)" class="flow-line" style="animation-delay:1.5s"/>
+
+          <!-- Node: Formulario web -->
+          <g filter="url(#glow)" class="node-group">
+            <rect x="30" y="94" width="96" height="52" rx="10" fill="#1A0035" stroke="rgba(155,48,255,0.5)" stroke-width="1.5"/>
+            <text x="78" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)" font-weight="500">Formulario</text>
+            <text x="78" y="130" text-anchor="middle" font-size="18">📋</text>
+          </g>
+
+          <!-- Node: Email -->
+          <g filter="url(#glow)" class="node-group">
+            <rect x="30" y="174" width="96" height="52" rx="10" fill="#1A0035" stroke="rgba(155,48,255,0.5)" stroke-width="1.5"/>
+            <text x="78" y="195" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)" font-weight="500">Gmail</text>
+            <text x="78" y="210" text-anchor="middle" font-size="18">📧</text>
+          </g>
+
+          <!-- Node: WhatsApp -->
+          <g filter="url(#glow)" class="node-group">
+            <rect x="30" y="254" width="96" height="52" rx="10" fill="#1A0035" stroke="rgba(155,48,255,0.5)" stroke-width="1.5"/>
+            <text x="78" y="275" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)" font-weight="500">WhatsApp</text>
+            <text x="78" y="290" text-anchor="middle" font-size="18">💬</text>
+          </g>
+
+          <!-- Central node: n8n (larger) -->
+          <g filter="url(#glow)">
+            <rect x="240" y="158" width="88" height="84" rx="14" fill="rgba(155,48,255,0.15)" stroke="#9B30FF" stroke-width="2"/>
+            <text x="284" y="188" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="11" fill="#9B30FF" font-weight="800" letter-spacing="0.5">n8n</text>
+            <text x="284" y="210" text-anchor="middle" font-size="22">⚙️</text>
+            <text x="284" y="228" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(155,48,255,0.6)">WORKFLOW</text>
+          </g>
+          <!-- Glow ring around n8n -->
+          <rect x="234" y="152" width="100" height="96" rx="18" fill="none" stroke="rgba(155,48,255,0.15)" stroke-width="8"/>
+
+          <!-- Node: CRM -->
+          <g filter="url(#glow)" class="node-group">
+            <rect x="394" y="94" width="96" height="52" rx="10" fill="#1A0035" stroke="rgba(155,48,255,0.5)" stroke-width="1.5"/>
+            <text x="442" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)" font-weight="500">CRM</text>
+            <text x="442" y="130" text-anchor="middle" font-size="18">🗂️</text>
+          </g>
+
+          <!-- Node: Google Sheets -->
+          <g filter="url(#glow)" class="node-group">
+            <rect x="394" y="174" width="96" height="52" rx="10" fill="#1A0035" stroke="rgba(155,48,255,0.5)" stroke-width="1.5"/>
+            <text x="442" y="195" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)" font-weight="500">Google Sheets</text>
+            <text x="442" y="210" text-anchor="middle" font-size="18">📊</text>
+          </g>
+
+          <!-- Node: Notificación -->
+          <g filter="url(#glow)" class="node-group">
+            <rect x="394" y="254" width="96" height="52" rx="10" fill="#1A0035" stroke="rgba(155,48,255,0.5)" stroke-width="1.5"/>
+            <text x="442" y="275" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)" font-weight="500">Notificación</text>
+            <text x="442" y="290" text-anchor="middle" font-size="18">🔔</text>
+          </g>
+
+          <!-- "Automático" label -->
+          <rect x="214" y="336" width="100" height="24" rx="12" fill="rgba(155,48,255,0.12)" />
+          <text x="264" y="352" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#9B30FF" font-weight="600" letter-spacing="0.08em">TODO AUTOMÁTICO</text>
+
+          <style>
+            .flow-line {
+              stroke-dasharray: 400;
+              stroke-dashoffset: 400;
+              animation: dash 2s ease-in-out forwards;
+            }
+            @keyframes dash {
+              to { stroke-dashoffset: 0; }
+            }
+            .node-group {
+              animation: node-in 0.5s ease-out backwards;
+            }
+            @keyframes node-in {
+              from { opacity: 0; transform: scale(0.85); }
+              to { opacity: 1; transform: scale(1); }
+            }
+          </style>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ PROBLEMA ═══ -->
+<section id="problema" class="section section--white">
+  <div class="container">
+    <div class="section__inner">
+
+      <div class="section__header reveal">
+        <span class="section__tag">El problema</span>
+        <h2 class="section__title">Así trabajan la mayoría de PYMEs ahora mismo:</h2>
+        <p class="section__sub">No es falta de herramientas — es que las herramientas no están conectadas entre sí.</p>
+      </div>
+
+      <div>
+        <ul class="pain-list">
+          <li class="pain-item reveal">
+            <span class="pain-icon">❌</span>
+            <p class="pain-text">Alguien copia leads del email a una hoja de cálculo a mano, todos los días.</p>
+          </li>
+          <li class="pain-item reveal" style="transition-delay:.08s">
+            <span class="pain-icon">❌</span>
+            <p class="pain-text">Los informes semanales se elaboran entrando a 4 plataformas distintas y copiando datos.</p>
+          </li>
+          <li class="pain-item reveal" style="transition-delay:.16s">
+            <span class="pain-icon">❌</span>
+            <p class="pain-text">Los asesores se enteran de un lead nuevo cuando "revisan el sistema", horas después.</p>
+          </li>
+          <li class="pain-item reveal" style="transition-delay:.24s">
+            <span class="pain-icon">❌</span>
+            <p class="pain-text">Cada vez que crece el negocio, hay que contratar más gente para hacer lo mismo.</p>
+          </li>
+          <li class="pain-item reveal" style="transition-delay:.32s">
+            <span class="pain-icon">❌</span>
+            <p class="pain-text">La página web tiene 5 años y ya no representa al negocio — ni la ves en Google.</p>
+          </li>
+        </ul>
+        <div class="pain-remate reveal" style="transition-delay:.4s">
+          "No es falta de herramientas. Es que las herramientas no están conectadas entre sí."
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ SERVICIOS ═══ -->
+<section id="servicios" class="section section--gray">
+  <div class="container">
+
+    <div class="section__header reveal" style="text-align:center;margin-bottom:56px">
+      <span class="section__tag">Servicios</span>
+      <h2 class="section__title">En Sunrise lo conectamos todo<br>para que corra solo.</h2>
+      <p class="section__sub" style="margin:0 auto;text-align:center">Dos servicios que se potencian entre sí. Sin agencias intermediarias, sin burocracia.</p>
+    </div>
+
+    <div class="services__grid">
+      <div class="service-card reveal">
+        <div class="service-card__icon">⚙️</div>
+        <h3 class="service-card__title">Automatización con n8n</h3>
+        <p class="service-card__desc">
+          Conectamos tus aplicaciones (CRM, email, WhatsApp, hojas de cálculo) y creamos flujos que trabajan por ti las 24 horas. Sin tocar nada manualmente.
+        </p>
+        <ul class="service-card__list">
+          <li>Gestión automática de leads</li>
+          <li>Notificaciones en tiempo real al equipo</li>
+          <li>Informes enviados solos cada lunes</li>
+          <li>Sincronización entre plataformas</li>
+        </ul>
+        <span class="service-card__price">Desde 150€</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.1s">
+        <div class="service-card__icon">🖥️</div>
+        <h3 class="service-card__title">Páginas web que convierten</h3>
+        <p class="service-card__desc">
+          Landing pages y sitios web modernos, optimizados para captar clientes desde Google. Diseño con identidad de marca y formulario conectado al CRM.
+        </p>
+        <ul class="service-card__list">
+          <li>Landing pages de captación</li>
+          <li>Sitios corporativos (4-6 páginas)</li>
+          <li>Rediseños de webs obsoletas</li>
+          <li>Optimización SEO básica incluida</li>
+        </ul>
+        <span class="service-card__price">Desde 200€</span>
+      </div>
+    </div>
+
+    <div class="service-combo reveal">
+      <span class="service-combo__badge">⚡</span>
+      <p class="service-combo__text">
+        <strong>Mejor opción: Web + Automatización</strong> — el formulario de contacto conectado al CRM, con notificación al vendedor en tiempo real. Nada se pierde, nada se olvida.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ ANTES / DESPUÉS ═══ -->
+<section id="antes-despues" class="section section--dark">
+  <div class="container">
+
+    <div class="section__header reveal" style="text-align:center;margin-bottom:56px">
+      <span class="section__tag">Resultado real</span>
+      <h2 class="section__title" style="color:var(--white)">De 24 horas a 2 minutos</h2>
+      <p class="section__sub" style="margin:0 auto;text-align:center">Esto no es un caso inventado. Es lo que se puede lograr en menos de una semana de trabajo.</p>
+    </div>
+
+    <div class="reveal">
+      <table class="ad-table">
+        <thead>
+          <tr>
+            <th class="th-antes">❌ &nbsp;ANTES</th>
+            <th class="th-despues">✅ &nbsp;DESPUÉS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-antes">El lead llega por formulario web</td>
+            <td class="td-despues">El formulario dispara el workflow automáticamente</td>
+          </tr>
+          <tr>
+            <td class="td-antes">Alguien lo copia a una hoja de cálculo</td>
+            <td class="td-despues">El contacto se crea en el CRM en segundos</td>
+          </tr>
+          <tr>
+            <td class="td-antes">Otro lo carga al CRM a mano</td>
+            <td class="td-despues">El lead recibe email de bienvenida automático</td>
+          </tr>
+          <tr>
+            <td class="td-antes">Se envía el email de bienvenida a mano</td>
+            <td class="td-despues">El asesor recibe WhatsApp con los datos del lead</td>
+          </tr>
+          <tr>
+            <td class="td-antes">El asesor se entera horas después</td>
+            <td class="td-despues"><strong>Todo en menos de 2 minutos ⚡</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="ad-note reveal">
+      Sin contratar a nadie extra. Sin cambiar las herramientas que ya usas.
+    </p>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ PROCESO ═══ -->
+<section id="proceso" class="section section--white">
+  <div class="container">
+
+    <div class="section__header reveal" style="text-align:center;margin-bottom:64px">
+      <span class="section__tag">Cómo trabajamos</span>
+      <h2 class="section__title">Así es trabajar con Sunrise</h2>
+      <p class="section__sub" style="margin:0 auto;text-align:center">Sin reuniones interminables, sin burocracia de agencia. Directo al grano.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step__num">1</div>
+        <div class="step__icon">🔍</div>
+        <h3 class="step__title">Diagnóstico gratuito (20 min)</h3>
+        <p class="step__desc">Hablamos de tus procesos actuales. Sin compromiso, sin coste. Solo entendemos qué se puede mejorar.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.1s">
+        <div class="step__num">2</div>
+        <div class="step__icon">📋</div>
+        <h3 class="step__title">Propuesta clara</h3>
+        <p class="step__desc">Te explico exactamente qué automatizaría, cuánto tiempo ahorrarías y qué costaría. Sin letra pequeña.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.2s">
+        <div class="step__num">3</div>
+        <div class="step__icon">⚙️</div>
+        <h3 class="step__title">Desarrollo rápido</h3>
+        <p class="step__desc">Construyo el workflow o la web. Días, no meses. Sin burocracia de agencia, sin reuniones vacías.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.3s">
+        <div class="step__num">4</div>
+        <div class="step__icon">🚀</div>
+        <h3 class="step__title">Entrega y soporte</h3>
+        <p class="step__desc">Te lo muestro funcionando en directo. Incluye 2 semanas de ajustes post-entrega sin coste adicional.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ COMPARATIVA ═══ -->
+<section id="comparativa" class="section section--gray">
+  <div class="container">
+
+    <div class="section__header reveal" style="text-align:center;margin-bottom:48px">
+      <span class="section__tag">Por qué Sunrise</span>
+      <h2 class="section__title">¿Por qué Sunrise y no una agencia?</h2>
+      <p class="section__sub" style="margin:0 auto;text-align:center">Compáralo tú mismo.</p>
+    </div>
+
+    <div class="comp-table-wrap reveal">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="th-sunrise">Sunrise ☀️</th>
+            <th>Agencia grande</th>
+            <th>Freelancer genérico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tiempo de entrega</td>
+            <td class="td-sunrise">Días</td>
+            <td>Meses</td>
+            <td>Variable</td>
+          </tr>
+          <tr>
+            <td>Precio orientativo</td>
+            <td class="td-sunrise">Desde 150€</td>
+            <td>Desde 2.000€</td>
+            <td>Variable</td>
+          </tr>
+          <tr>
+            <td>Especialización n8n</td>
+            <td class="td-sunrise"><span class="comp-yes">✓</span></td>
+            <td><span class="comp-no">✗</span></td>
+            <td><span class="comp-no">✗</span></td>
+          </tr>
+          <tr>
+            <td>Hablas con quien lo hace</td>
+            <td class="td-sunrise"><span class="comp-yes">✓</span> Siempre con Massin</td>
+            <td><span class="comp-maybe">Account manager</span></td>
+            <td><span class="comp-maybe">Depende</span></td>
+          </tr>
+          <tr>
+            <td>Resultados acordados antes</td>
+            <td class="td-sunrise"><span class="comp-yes">✓</span></td>
+            <td><span class="comp-no">✗</span></td>
+            <td><span class="comp-no">✗</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="comp-note reveal">
+      Somos una empresa nueva — y eso es una ventaja para ti: más hambre, más dedicación y <strong>precios de lanzamiento</strong> que no van a durar para siempre.
+    </p>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FAQ ═══ -->
+<section id="faq" class="section section--white">
+  <div class="container">
+
+    <div class="section__header reveal" style="text-align:center;margin-bottom:48px">
+      <span class="section__tag">FAQ</span>
+      <h2 class="section__title">Preguntas frecuentes</h2>
+      <p class="section__sub" style="margin:0 auto;text-align:center">Todo lo que necesitas saber antes de empezar.</p>
+    </div>
+
+    <ul class="faq-list reveal">
+      <li class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Necesito saber de tecnología para usar las automatizaciones?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            No. Tú nos describes el proceso que quieres automatizar y nosotros lo construimos. Solo necesitas tener acceso a las herramientas que ya usas. Nosotros hacemos el resto.
+          </div>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Qué pasa si el workflow falla o hay un error?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Incluimos 2 semanas de soporte post-entrega para ajustes sin coste adicional. Además, n8n envía notificaciones cuando hay errores para que se puedan corregir rápidamente. No te quedas solo.
+          </div>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Cuánto tiempo tarda en estar listo?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Los proyectos simples se entregan en 3-5 días. Los más complejos, en 1-2 semanas. Sin tiempos de agencia, sin reuniones de seguimiento interminables.
+          </div>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Puedo empezar con algo pequeño y escalar después?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Sí, es lo más habitual. Automatizamos un proceso primero, vemos el resultado medible y expandimos desde ahí. No hay que comprometerse con un proyecto grande desde el principio.
+          </div>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Y si no funciona para mi negocio?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Por eso hacemos el diagnóstico gratuito antes de cobrar nada. Si la automatización no tiene sentido para tu caso concreto, te lo digo directamente. Sin rodeos.
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CONTACTO ═══ -->
+<section id="contacto" class="section">
+  <div class="container">
+    <div class="contact__inner">
+
+      <div class="contact__text reveal">
+        <span class="section__tag">Contacto</span>
+        <h2 class="section__title" style="color:var(--white);margin-top:16px">
+          ¿Cuántas horas por semana<br>
+          <span class="contact__title-accent">podrías ahorrar?</span>
+        </h2>
+        <p class="contact__body">
+          Hablemos 20 minutos. Sin compromiso, sin coste. Si la automatización tiene sentido para tu negocio, te digo exactamente cómo y cuánto costaría. Si no aplica, también te lo digo.
+        </p>
+        <p class="contact__signature">Massin, fundador de Sunrise Automatizaciones</p>
+      </div>
+
+      <div class="contact__form reveal" style="transition-delay:.15s">
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp (opcional)</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="+34 600 000 000" autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="proceso">¿Qué proceso te gustaría automatizar?</label>
+            <textarea id="proceso" name="proceso" placeholder="Descríbelo brevemente... (opcional)"></textarea>
+          </div>
+          <div class="form-consent">
+            <input type="checkbox" id="consent" name="consent" required />
+            <label for="consent">He leído y acepto la <a href="#privacy">política de privacidad</a>. Mis datos serán usados únicamente para contactarme.</label>
+          </div>
+          <button type="submit" class="btn btn--purple btn--lg form-btn">
+            Reservar mi diagnóstico gratuito →
+          </button>
+          <p class="form-microcopy">Respondo en menos de 24 horas.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">✅</div>
+          <h3>¡Mensaje enviado!</h3>
+          <p>Massin te responderá en menos de 24 horas. Revisa tu bandeja de entrada.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FOOTER ═══ -->
+<footer id="privacy">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__logo">
+        <img src="assets/logo.png" alt="Sunrise Automatizaciones" />
+        <span class="footer__logo-text">Sunrise Automatizaciones</span>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <div class="footer__social">
+        <a href="#" aria-label="LinkedIn" title="LinkedIn">in</a>
+        <a href="#" aria-label="Instagram" title="Instagram">ig</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2025 Sunrise Automatizaciones · España</p>
+      <div class="footer__legal">
+        <a href="#privacy">Política de privacidad</a>
+        <a href="#privacy">Aviso legal</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

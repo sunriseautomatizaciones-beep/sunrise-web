@@ -194,8 +194,6 @@ ul { list-style: none; }
   width: 36px;
   height: 36px;
   object-fit: contain;
-  filter: invert(1);
-  mix-blend-mode: screen;
 }
 .nav__logo-text {
   font-family: var(--font-head);
@@ -1019,9 +1017,6 @@ footer {
   width: 32px;
   height: 32px;
   object-fit: contain;
-  filter: invert(1);
-  mix-blend-mode: screen;
-  opacity: 0.9;
 }
 .footer__logo-text {
   font-family: var(--font-head);

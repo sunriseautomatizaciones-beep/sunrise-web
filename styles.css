@@ -386,14 +386,23 @@ ul { list-style: none; }
 /* Workflow SVG illustration */
 .hero__visual {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 20px;
   position: relative;
+}
+.workflow-wrap {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(155,48,255,0.2);
+  background: rgba(26,0,53,0.6);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  box-shadow: 0 0 48px rgba(155,48,255,0.18), inset 0 0 60px rgba(75,0,130,0.1);
 }
 .workflow-svg {
   width: 100%;
-  max-width: 520px;
-  filter: drop-shadow(0 0 40px rgba(155,48,255,0.25));
+  display: block;
 }
 
 /* ════════════════════════════════════════════════════
@@ -1167,12 +1176,10 @@ footer {
 
 .hero__floating-cards {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
-  position: absolute;
-  right: -8px;
-  bottom: 20px;
-  z-index: 3;
+  width: 100%;
+  justify-content: center;
 }
 .hero__float-card {
   background: rgba(255,255,255,0.06);
@@ -1544,7 +1551,7 @@ footer {
    RESPONSIVE — NUEVAS SECCIONES
 ════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
-  .hero__floating-cards { display: none; }
+  .hero__floating-cards { flex-wrap: wrap; }
   .integrations__grid { grid-template-columns: repeat(4, 1fr); }
   .testimonios__grid { grid-template-columns: 1fr; gap: 16px; }
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }

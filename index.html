@@ -9,12 +9,16 @@
   <meta property="og:title" content="Sunrise Automatizaciones — Automatiza tu negocio desde 150€" />
   <meta property="og:description" content="Conectamos tus herramientas y automatizamos tus procesos. Diagnóstico gratuito de 20 minutos." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/hero-bg.jpg" />
+  <link rel="canonical" href="https://sunrise-web.vercel.app/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+<div id="scroll-progress"></div>
 
 <!-- ═══════════════════════════════════════ NAV ═══ -->
 <nav id="nav">
@@ -85,6 +89,31 @@
       </div>
 
       <!-- Workflow SVG illustration -->
+      <!-- Floating cards -->
+      <div class="hero__floating-cards" aria-hidden="true">
+        <div class="hero__float-card">
+          <div class="hero__float-icon">⚡</div>
+          <div>
+            <span class="hero__float-label">Entrega rápida</span>
+            <span class="hero__float-sub">3-5 días hábiles</span>
+          </div>
+        </div>
+        <div class="hero__float-card">
+          <div class="hero__float-icon">💰</div>
+          <div>
+            <span class="hero__float-label">Desde 150€</span>
+            <span class="hero__float-sub">Sin costes ocultos</span>
+          </div>
+        </div>
+        <div class="hero__float-card">
+          <div class="hero__float-icon">🔗</div>
+          <div>
+            <span class="hero__float-label">+20 integraciones</span>
+            <span class="hero__float-sub">Tus apps conectadas</span>
+          </div>
+        </div>
+      </div>
+
       <div class="hero__visual">
         <svg class="workflow-svg" viewBox="0 0 520 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
@@ -293,6 +322,67 @@
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════ INTEGRACIONES ═══ -->
+<section id="integraciones">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__tag">Integraciones</span>
+      <h2 class="section__title">Conectamos tus herramientas favoritas</h2>
+      <p class="section__sub">Si ya las usas, las automatizamos. Sin cambiar lo que funciona.</p>
+    </div>
+    <div class="integrations__grid">
+      <div class="integration-item reveal">
+        <div class="integration-icon">🔄</div>
+        <span class="integration-name">n8n</span>
+      </div>
+      <div class="integration-item reveal" style="transition-delay:.05s">
+        <div class="integration-icon">📊</div>
+        <span class="integration-name">Google Sheets</span>
+      </div>
+      <div class="integration-item reveal" style="transition-delay:.1s">
+        <div class="integration-icon">📧</div>
+        <span class="integration-name">Gmail</span>
+      </div>
+      <div class="integration-item reveal" style="transition-delay:.15s">
+        <div class="integration-icon">💬</div>
+        <span class="integration-name">WhatsApp</span>
+      </div>
+      <div class="integration-item reveal" style="transition-delay:.2s">
+        <div class="integration-icon">📝</div>
+        <span class="integration-name">Notion</span>
+      </div>
+      <div class="integration-item reveal" style="transition-delay:.25s">
+        <div class="integration-icon">🗃️</div>
+        <span class="integration-name">Airtable</span>
+      </div>
+      <div class="integration-item reveal" style="transition-delay:.3s">
+        <div class="integration-icon">💼</div>
+        <span class="integration-name">Slack</span>
+      </div>
+      <div class="integration-item reveal" style="transition-delay:.35s">
+        <div class="integration-icon">📋</div>
+        <span class="integration-name">Typeform</span>
+      </div>
+      <div class="integration-item reveal" style="transition-delay:.4s">
+        <div class="integration-icon">💳</div>
+        <span class="integration-name">Stripe</span>
+      </div>
+      <div class="integration-item reveal" style="transition-delay:.45s">
+        <div class="integration-icon">🏢</div>
+        <span class="integration-name">HubSpot</span>
+      </div>
+      <div class="integration-item reveal" style="transition-delay:.5s">
+        <div class="integration-icon">📅</div>
+        <span class="integration-name">Calendly</span>
+      </div>
+      <div class="integration-item reveal" style="transition-delay:.55s">
+        <div class="integration-icon">⚙️</div>
+        <span class="integration-name">Make</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════════════════════════ ANTES / DESPUÉS ═══ -->
 <section id="antes-despues" class="section section--dark">
   <div class="container">
@@ -340,6 +430,52 @@
       Sin contratar a nadie extra. Sin cambiar las herramientas que ya usas.
     </p>
 
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ TESTIMONIOS ═══ -->
+<section id="testimonios" class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__tag">Clientes</span>
+      <h2 class="section__title" style="color:var(--white)">Lo que dicen quienes ya automatizaron</h2>
+      <p class="section__sub">Resultados reales de negocios como el tuyo.</p>
+    </div>
+    <div class="testimonios__grid">
+      <div class="testimonio-card reveal">
+        <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testimonio-text">"Antes tardábamos 3 horas al día gestionando leads a mano. Ahora todo es automático. En menos de una semana teníamos el sistema funcionando. Recuperamos tiempo que no sabíamos que perdíamos."</p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar" style="background:linear-gradient(135deg,#7B2FBE,#9B30FF)">CM</div>
+          <div class="testimonio-info">
+            <span class="testimonio-name">Carlos M.</span>
+            <span class="testimonio-role">Director comercial · Madrid</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card reveal" style="transition-delay:.1s">
+        <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testimonio-text">"Massin me creó una landing page que ya aparece en Google y los pacientes llegan solos. Además conectó el formulario con el CRM. No tengo que tocar nada manualmente. Totalmente recomendable."</p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar" style="background:linear-gradient(135deg,#4B0082,#7B2FBE)">AG</div>
+          <div class="testimonio-info">
+            <span class="testimonio-name">Ana G.</span>
+            <span class="testimonio-role">Dueña de clínica dental · Barcelona</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card reveal" style="transition-delay:.2s">
+        <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testimonio-text">"Conectamos el CRM con WhatsApp y ahora el equipo recibe cada lead al instante con todos los datos. Recuperamos clientes que antes se perdían porque tardábamos demasiado en responder."</p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar" style="background:linear-gradient(135deg,#9B30FF,#C084FC)">RS</div>
+          <div class="testimonio-info">
+            <span class="testimonio-name">Roberto S.</span>
+            <span class="testimonio-role">Agencia inmobiliaria · Valencia</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -571,35 +707,100 @@
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════ STICKY CTA ═══ -->
+<div id="sticky-cta" role="complementary" aria-label="CTA flotante">
+  <p class="sticky-cta__text">¿Listo para <span>ahorrar horas cada semana</span>?</p>
+  <a href="#contacto" class="btn btn--purple">Diagnóstico gratis →</a>
+</div>
+
 <!-- ═══════════════════════════════════════ FOOTER ═══ -->
 <footer id="privacy">
   <div class="container">
-    <div class="footer__top">
-      <div class="footer__logo">
-        <span class="footer__logo-mark" role="img" aria-label="Sunrise Automatizaciones"></span>
-        <span class="footer__logo-text">Sunrise Automatizaciones</span>
+    <div class="footer__grid">
+      <!-- Columna 1: Brand -->
+      <div>
+        <div class="footer__logo" style="margin-bottom:12px">
+          <span class="footer__logo-mark" role="img" aria-label="Sunrise Automatizaciones"></span>
+          <span class="footer__logo-text">Sunrise Automatizaciones</span>
+        </div>
+        <p class="footer__tagline">Automatizamos procesos y creamos webs para PYMEs en España. Sin agencias caras, sin código.</p>
+        <div class="footer__social-icons" style="margin-top:20px">
+          <a href="https://www.linkedin.com/company/sunrise-automatizaciones" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/sunriseautomatizaciones" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
       </div>
-      <nav class="footer__links" aria-label="Footer">
-        <a href="#servicios">Servicios</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-      <div class="footer__social">
-        <a href="#" aria-label="LinkedIn" title="LinkedIn">in</a>
-        <a href="#" aria-label="Instagram" title="Instagram">ig</a>
+
+      <!-- Columna 2: Servicios -->
+      <div>
+        <p class="footer__col-title">Servicios</p>
+        <nav class="footer__col-links" aria-label="Servicios">
+          <a href="#servicios">Automatización n8n</a>
+          <a href="#servicios">Páginas web</a>
+          <a href="#servicios">Web + Automatización</a>
+          <a href="#comparativa">Por qué Sunrise</a>
+        </nav>
+      </div>
+
+      <!-- Columna 3: Empresa -->
+      <div>
+        <p class="footer__col-title">Empresa</p>
+        <nav class="footer__col-links" aria-label="Empresa">
+          <a href="#proceso">Cómo trabajamos</a>
+          <a href="#faq">Preguntas frecuentes</a>
+          <a href="#testimonios">Testimonios</a>
+          <a href="#integraciones">Integraciones</a>
+        </nav>
+      </div>
+
+      <!-- Columna 4: Contacto -->
+      <div>
+        <p class="footer__col-title">Contacto</p>
+        <nav class="footer__col-links" aria-label="Contacto">
+          <a href="mailto:sunriseautomatizaciones@gmail.com">sunriseautomatizaciones@gmail.com</a>
+          <a href="#contacto">Reservar diagnóstico</a>
+          <a href="#privacy">Política de privacidad</a>
+          <a href="#privacy">Aviso legal</a>
+        </nav>
       </div>
     </div>
+
     <div class="footer__bottom">
-      <p class="footer__copy">© 2025 Sunrise Automatizaciones · España</p>
-      <div class="footer__legal">
-        <a href="#privacy">Política de privacidad</a>
-        <a href="#privacy">Aviso legal</a>
-      </div>
+      <p class="footer__copy">© <span id="footer-year">2025</span> Sunrise Automatizaciones · España</p>
+      <p class="footer__copy" style="color:rgba(255,255,255,0.12)">Hecho con ☀️ por Massin</p>
     </div>
   </div>
 </footer>
 
 <script src="main.js"></script>
+
+<!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Sunrise Automatizaciones",
+      "url": "https://sunrise-web.vercel.app",
+      "email": "sunriseautomatizaciones@gmail.com",
+      "description": "Automatización de procesos con n8n y creación de páginas web para PYMEs en España.",
+      "areaServed": "ES",
+      "founder": { "@type": "Person", "name": "Massin" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿Necesito saber de tecnología para usar las automatizaciones?", "acceptedAnswer": { "@type": "Answer", "text": "No. Tú nos describes el proceso que quieres automatizar y nosotros lo construimos." } },
+        { "@type": "Question", "name": "¿Cuánto tiempo tarda en estar listo?", "acceptedAnswer": { "@type": "Answer", "text": "Los proyectos simples se entregan en 3-5 días. Los más complejos, en 1-2 semanas." } },
+        { "@type": "Question", "name": "¿Qué pasa si el workflow falla?", "acceptedAnswer": { "@type": "Answer", "text": "Incluimos 2 semanas de soporte post-entrega sin coste adicional." } }
+      ]
+    }
+  ]
+}
+</script>
 </body>
 </html>

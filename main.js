@@ -79,7 +79,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   const container = document.getElementById('particles');
   if (!container) return;
   const colors = ['#9B30FF', '#7B2FBE', '#4B0082', '#C084FC'];
-  for (let i = 0; i < 28; i++) {
+  for (let i = 0; i < 15; i++) {
     const p = document.createElement('span');
     const size = Math.random() * 3 + 1;
     const color = colors[Math.floor(Math.random() * colors.length)];
@@ -184,3 +184,33 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.4 });
 
 sections.forEach(s => sectionObserver.observe(s));
+
+// ─── SCROLL PROGRESS BAR ───
+const progressBar = document.getElementById('scroll-progress');
+if (progressBar) {
+  window.addEventListener('scroll', () => {
+    const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    progressBar.style.width = scrolled + '%';
+  }, { passive: true });
+}
+
+// ─── STICKY CTA BAR ───
+const stickyCta = document.getElementById('sticky-cta');
+const contactSection = document.getElementById('contacto');
+if (stickyCta && contactSection) {
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const contactTop = contactSection.offsetTop;
+    const show = scrollY > 600 && scrollY < contactTop - window.innerHeight * 0.5;
+    stickyCta.classList.toggle('visible', show);
+  }, { passive: true });
+  // Smooth scroll from sticky CTA
+  stickyCta.querySelector('a')?.addEventListener('click', e => {
+    e.preventDefault();
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
+// ─── DYNAMIC FOOTER YEAR ───
+const yearEl = document.getElementById('footer-year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();

@@ -18,13 +18,16 @@
 </head>
 <body>
 
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
 <div id="scroll-progress"></div>
 
 <!-- ═══════════════════════════════════════ NAV ═══ -->
 <nav id="nav">
   <div class="nav__inner">
     <a href="#" class="nav__logo" aria-label="Sunrise Automatizaciones">
-      <img src="assets/logo-transparent.png" class="nav__logo-img" alt="Sunrise" />
+      <img src="assets/logo-transparent.png" class="nav__logo-img" alt="Sunrise logo" />
       <div class="nav__logo-text">
         Sunrise
         <span>Automatizaciones</span>
@@ -46,7 +49,7 @@
 
 <!-- ═══════════════════════════════════════ HERO ═══ -->
 <section id="hero">
-  <div id="particles"></div>
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="container">
     <div class="hero__inner">
 
@@ -332,54 +335,89 @@
       <h2 class="section__title">Conectamos tus herramientas favoritas</h2>
       <p class="section__sub">Si ya las usas, las automatizamos. Sin cambiar lo que funciona.</p>
     </div>
-    <div class="integrations__grid">
-      <div class="integration-item reveal">
-        <div class="integration-icon">🔄</div>
-        <span class="integration-name">n8n</span>
+    <!-- Marquee row 1 -->
+    <div class="integrations__marquee reveal">
+      <div class="integrations__track">
+        <div class="integration-item" data-tooltip="n8n — Motor de automatización"><div class="integration-icon">🔄</div><span class="integration-name">n8n</span></div>
+        <div class="integration-item" data-tooltip="Google Sheets — Hojas de cálculo"><div class="integration-icon">📊</div><span class="integration-name">Google Sheets</span></div>
+        <div class="integration-item" data-tooltip="Gmail — Correo corporativo"><div class="integration-icon">📧</div><span class="integration-name">Gmail</span></div>
+        <div class="integration-item" data-tooltip="WhatsApp Business — Mensajería"><div class="integration-icon">💬</div><span class="integration-name">WhatsApp</span></div>
+        <div class="integration-item" data-tooltip="Notion — Base de conocimiento"><div class="integration-icon">📝</div><span class="integration-name">Notion</span></div>
+        <div class="integration-item" data-tooltip="Airtable — Base de datos visual"><div class="integration-icon">🗃️</div><span class="integration-name">Airtable</span></div>
+        <div class="integration-item" data-tooltip="Slack — Comunicación de equipo"><div class="integration-icon">💼</div><span class="integration-name">Slack</span></div>
+        <div class="integration-item" data-tooltip="Typeform — Formularios avanzados"><div class="integration-icon">📋</div><span class="integration-name">Typeform</span></div>
+        <div class="integration-item" data-tooltip="Stripe — Pagos online"><div class="integration-icon">💳</div><span class="integration-name">Stripe</span></div>
+        <div class="integration-item" data-tooltip="HubSpot — CRM y marketing"><div class="integration-icon">🏢</div><span class="integration-name">HubSpot</span></div>
+        <div class="integration-item" data-tooltip="Calendly — Reservas automáticas"><div class="integration-icon">📅</div><span class="integration-name">Calendly</span></div>
+        <div class="integration-item" data-tooltip="Make — Automatización visual"><div class="integration-icon">⚙️</div><span class="integration-name">Make</span></div>
+        <!-- Duplicado para loop sin salto -->
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">🔄</div><span class="integration-name">n8n</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">📊</div><span class="integration-name">Google Sheets</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">📧</div><span class="integration-name">Gmail</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">💬</div><span class="integration-name">WhatsApp</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">📝</div><span class="integration-name">Notion</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">🗃️</div><span class="integration-name">Airtable</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">💼</div><span class="integration-name">Slack</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">📋</div><span class="integration-name">Typeform</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">💳</div><span class="integration-name">Stripe</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">🏢</div><span class="integration-name">HubSpot</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">📅</div><span class="integration-name">Calendly</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">⚙️</div><span class="integration-name">Make</span></div>
       </div>
-      <div class="integration-item reveal" style="transition-delay:.05s">
-        <div class="integration-icon">📊</div>
-        <span class="integration-name">Google Sheets</span>
+    </div>
+    <!-- Marquee row 2 (inverso) -->
+    <div class="integrations__marquee integrations__marquee--reverse reveal" style="margin-top:12px">
+      <div class="integrations__track integrations__track--reverse">
+        <div class="integration-item"><div class="integration-icon">📦</div><span class="integration-name">Shopify</span></div>
+        <div class="integration-item"><div class="integration-icon">📱</div><span class="integration-name">Telegram</span></div>
+        <div class="integration-item"><div class="integration-icon">🤖</div><span class="integration-name">OpenAI</span></div>
+        <div class="integration-item"><div class="integration-icon">📨</div><span class="integration-name">Mailchimp</span></div>
+        <div class="integration-item"><div class="integration-icon">🗂️</div><span class="integration-name">Trello</span></div>
+        <div class="integration-item"><div class="integration-icon">🔔</div><span class="integration-name">Zapier</span></div>
+        <div class="integration-item"><div class="integration-icon">📈</div><span class="integration-name">Google Ads</span></div>
+        <div class="integration-item"><div class="integration-icon">🏦</div><span class="integration-name">Bizum / Pago</span></div>
+        <div class="integration-item"><div class="integration-icon">📞</div><span class="integration-name">Twilio</span></div>
+        <div class="integration-item"><div class="integration-icon">🗓️</div><span class="integration-name">Google Cal</span></div>
+        <div class="integration-item"><div class="integration-icon">🌐</div><span class="integration-name">WordPress</span></div>
+        <div class="integration-item"><div class="integration-icon">💡</div><span class="integration-name">Webflow</span></div>
+        <!-- Duplicado -->
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">📦</div><span class="integration-name">Shopify</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">📱</div><span class="integration-name">Telegram</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">🤖</div><span class="integration-name">OpenAI</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">📨</div><span class="integration-name">Mailchimp</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">🗂️</div><span class="integration-name">Trello</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">🔔</div><span class="integration-name">Zapier</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">📈</div><span class="integration-name">Google Ads</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">🏦</div><span class="integration-name">Bizum / Pago</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">📞</div><span class="integration-name">Twilio</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">🗓️</div><span class="integration-name">Google Cal</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">🌐</div><span class="integration-name">WordPress</span></div>
+        <div class="integration-item" aria-hidden="true"><div class="integration-icon">💡</div><span class="integration-name">Webflow</span></div>
       </div>
-      <div class="integration-item reveal" style="transition-delay:.1s">
-        <div class="integration-icon">📧</div>
-        <span class="integration-name">Gmail</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ MÉTRICAS ═══ -->
+<section id="metricas">
+  <div class="metricas__accent-line"></div>
+  <div class="container">
+    <div class="metricas__grid">
+      <div class="metrica-item reveal">
+        <span class="metrica-num" data-target="15" data-suffix="+">0+</span>
+        <span class="metrica-label">Automatizaciones entregadas</span>
       </div>
-      <div class="integration-item reveal" style="transition-delay:.15s">
-        <div class="integration-icon">💬</div>
-        <span class="integration-name">WhatsApp</span>
+      <div class="metrica-item reveal" data-delay=".08s">
+        <span class="metrica-num" data-target="50" data-suffix="h+">0h+</span>
+        <span class="metrica-label">Horas ahorradas por mes</span>
       </div>
-      <div class="integration-item reveal" style="transition-delay:.2s">
-        <div class="integration-icon">📝</div>
-        <span class="integration-name">Notion</span>
+      <div class="metrica-item reveal" data-delay=".16s">
+        <span class="metrica-num" data-target="5" data-suffix=" días">0 días</span>
+        <span class="metrica-label">Tiempo de entrega</span>
       </div>
-      <div class="integration-item reveal" style="transition-delay:.25s">
-        <div class="integration-icon">🗃️</div>
-        <span class="integration-name">Airtable</span>
-      </div>
-      <div class="integration-item reveal" style="transition-delay:.3s">
-        <div class="integration-icon">💼</div>
-        <span class="integration-name">Slack</span>
-      </div>
-      <div class="integration-item reveal" style="transition-delay:.35s">
-        <div class="integration-icon">📋</div>
-        <span class="integration-name">Typeform</span>
-      </div>
-      <div class="integration-item reveal" style="transition-delay:.4s">
-        <div class="integration-icon">💳</div>
-        <span class="integration-name">Stripe</span>
-      </div>
-      <div class="integration-item reveal" style="transition-delay:.45s">
-        <div class="integration-icon">🏢</div>
-        <span class="integration-name">HubSpot</span>
-      </div>
-      <div class="integration-item reveal" style="transition-delay:.5s">
-        <div class="integration-icon">📅</div>
-        <span class="integration-name">Calendly</span>
-      </div>
-      <div class="integration-item reveal" style="transition-delay:.55s">
-        <div class="integration-icon">⚙️</div>
-        <span class="integration-name">Make</span>
+      <div class="metrica-item reveal" data-delay=".24s">
+        <span class="metrica-num" data-target="100" data-suffix="%">0%</span>
+        <span class="metrica-label">Satisfacción garantizada</span>
       </div>
     </div>
   </div>
@@ -455,7 +493,7 @@
           </div>
         </div>
       </div>
-      <div class="testimonio-card reveal" style="transition-delay:.1s">
+      <div class="testimonio-card reveal" data-delay=".1s">
         <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
         <p class="testimonio-text">"Sunrise me creó una landing page que ya aparece en Google y los pacientes llegan solos. Además conectaron el formulario con el CRM. No tengo que tocar nada manualmente. Totalmente recomendable."</p>
         <div class="testimonio-author">
@@ -466,7 +504,7 @@
           </div>
         </div>
       </div>
-      <div class="testimonio-card reveal" style="transition-delay:.2s">
+      <div class="testimonio-card reveal" data-delay=".2s">
         <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
         <p class="testimonio-text">"Conectamos el CRM con WhatsApp y ahora el equipo recibe cada lead al instante con todos los datos. Recuperamos clientes que antes se perdían porque tardábamos demasiado en responder."</p>
         <div class="testimonio-author">

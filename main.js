@@ -36,6 +36,18 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
+// ─── HERO LOADED (stagger entrance) ───
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    document.body.classList.add('hero-loaded');
+  });
+});
+
+// ─── STAGGER DELAY INIT ───
+document.querySelectorAll('[data-delay]').forEach(el => {
+  el.style.transitionDelay = el.dataset.delay;
+});
+
 // ─── REVEAL ON SCROLL ───
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -74,42 +86,75 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// ─── PARTICLES ───
-(function createParticles() {
-  const container = document.getElementById('particles');
-  if (!container) return;
-  const colors = ['#9B30FF', '#7B2FBE', '#4B0082', '#C084FC'];
-  for (let i = 0; i < 15; i++) {
-    const p = document.createElement('span');
-    const size = Math.random() * 3 + 1;
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    const duration = Math.random() * 12 + 8;
-    const delay = Math.random() * 10;
-    const xDrift = (Math.random() > 0.5 ? '' : '-') + (Math.random() * 120 + 30);
-    p.style.cssText = `
-      position:absolute;
-      left:${Math.random() * 100}%;
-      bottom:-10px;
-      width:${size}px;
-      height:${size}px;
-      background:${color};
-      border-radius:50%;
-      opacity:${Math.random() * 0.25 + 0.05};
-      animation:particle-rise ${duration}s ${delay}s infinite linear;
-      --drift:${xDrift}px;
-    `;
-    container.appendChild(p);
+// ─── CANVAS PARTICLES ───
+(function initCanvasParticles() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const colors = ['#9B30FF', '#7B2FBE', '#C084FC', '#4B0082'];
+  let dots = [], animId;
+
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
   }
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes particle-rise {
-      0%   { transform: translateY(0) translateX(0); opacity: 0; }
-      10%  { opacity: 1; }
-      90%  { opacity: 0.2; }
-      100% { transform: translateY(-105vh) translateX(var(--drift)); opacity: 0; }
+
+  function createDots() {
+    dots = [];
+    const count = Math.min(60, Math.floor(canvas.width / 20));
+    for (let i = 0; i < count; i++) {
+      dots.push({
+        x:     Math.random() * canvas.width,
+        y:     Math.random() * canvas.height,
+        r:     Math.random() * 1.8 + 0.6,
+        vx:    (Math.random() - 0.5) * 0.35,
+        vy:    (Math.random() - 0.5) * 0.35,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        alpha: Math.random() * 0.22 + 0.05
+      });
     }
-  `;
-  document.head.appendChild(style);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    dots.forEach(d => {
+      d.x += d.vx;
+      d.y += d.vy;
+      if (d.x < 0) d.x = canvas.width;
+      if (d.x > canvas.width) d.x = 0;
+      if (d.y < 0) d.y = canvas.height;
+      if (d.y > canvas.height) d.y = 0;
+
+      // Glow pass
+      ctx.save();
+      ctx.globalAlpha = d.alpha * 0.4;
+      ctx.filter = 'blur(3px)';
+      ctx.fillStyle = d.color;
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r * 2.5, 0, Math.PI * 2);
+      ctx.fill();
+      // Crisp dot
+      ctx.globalAlpha = d.alpha;
+      ctx.filter = 'none';
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    });
+    animId = requestAnimationFrame(draw);
+  }
+
+  // Pause when hero scrolls off screen
+  const heroSection = document.getElementById('hero');
+  const visObserver = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) { animId = requestAnimationFrame(draw); }
+    else { cancelAnimationFrame(animId); }
+  }, { threshold: 0 });
+  if (heroSection) visObserver.observe(heroSection);
+
+  resize();
+  createDots();
+  window.addEventListener('resize', () => { resize(); createDots(); }, { passive: true });
 })();
 
 // ─── CONTACT FORM ───
@@ -214,3 +259,99 @@ if (stickyCta && contactSection) {
 // ─── DYNAMIC FOOTER YEAR ───
 const yearEl = document.getElementById('footer-year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// ─── ANIMATED COUNTERS ───
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target, 10);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1600;
+  const startTime = performance.now();
+  function step(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(eased * target) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const metricasSection = document.getElementById('metricas');
+if (metricasSection) {
+  const counterObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.querySelectorAll('.metrica-num').forEach(animateCounter);
+      counterObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.4 });
+  counterObserver.observe(metricasSection);
+}
+
+// ─── 3D TILT CARDS ───
+(function initTilt() {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const MAX_DEG = 8;
+  document.querySelectorAll('.service-card, .testimonio-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { el.style.transition = 'none'; });
+    el.addEventListener('mousemove', e => {
+      const rect = el.getBoundingClientRect();
+      const dx = (e.clientX - rect.left - rect.width  / 2) / (rect.width  / 2);
+      const dy = (e.clientY - rect.top  - rect.height / 2) / (rect.height / 2);
+      el.style.transform = `perspective(800px) rotateX(${-dy * MAX_DEG}deg) rotateY(${dx * MAX_DEG}deg) translateY(-4px)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transition = '';
+      el.style.transform = '';
+    });
+  });
+})();
+
+// ─── BUTTON RIPPLE ───
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const ripple = document.createElement('span');
+    ripple.className = 'btn-ripple';
+    ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size / 2}px;top:${e.clientY - rect.top - size / 2}px`;
+    this.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+  });
+});
+
+// ─── CUSTOM CURSOR ───
+(function initCursor() {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  const dot  = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  if (!dot || !ring) return;
+  let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    dot.style.left = mouseX + 'px';
+    dot.style.top  = mouseY + 'px';
+    dot.classList.remove('hidden');
+    ring.classList.remove('hidden');
+  });
+
+  (function lerpRing() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    ring.style.left = ringX + 'px';
+    ring.style.top  = ringY + 'px';
+    requestAnimationFrame(lerpRing);
+  })();
+
+  const interactives = 'a, button, .btn, .faq-q, .integration-item, .service-card, .testimonio-card';
+  document.querySelectorAll(interactives).forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
+  });
+
+  document.addEventListener('mouseleave', () => {
+    dot.classList.add('hidden');
+    ring.classList.add('hidden');
+  });
+})();

@@ -36,6 +36,35 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
+// ─── HERO VIDEO ───
+(function initHeroVideo() {
+  const video = document.getElementById('hero-video');
+  if (!video) return;
+
+  const tryPlay = () => {
+    video.play().then(() => {
+      video.classList.add('playing');
+    }).catch(() => {
+      // Autoplay bloqueado (ej. política del navegador) — mostrar poster
+      video.style.opacity = '0.55';
+    });
+  };
+
+  if (video.readyState >= 3) {
+    tryPlay();
+  } else {
+    video.addEventListener('canplay', tryPlay, { once: true });
+  }
+
+  // Pausar cuando el hero sale del viewport (ahorra batería en móvil)
+  const heroSection = document.getElementById('hero');
+  if (heroSection) {
+    new IntersectionObserver(([entry]) => {
+      entry.isIntersecting ? video.play().catch(() => {}) : video.pause();
+    }, { threshold: 0 }).observe(heroSection);
+  }
+})();
+
 // ─── HERO LOADED (stagger entrance) ───
 requestAnimationFrame(() => {
   requestAnimationFrame(() => {

@@ -1180,6 +1180,10 @@ footer {
   height: 100%;
   object-fit: cover;
   z-index: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+#hero-video.playing {
   opacity: 0.55;
 }
 #hero::after {

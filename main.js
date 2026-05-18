@@ -101,7 +101,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 
   function createDots() {
     dots = [];
-    const count = Math.min(60, Math.floor(canvas.width / 20));
+    const count = Math.min(30, Math.floor(canvas.width / 25));
     for (let i = 0; i < count; i++) {
       dots.push({
         x:     Math.random() * canvas.width,
@@ -125,21 +125,11 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       if (d.y < 0) d.y = canvas.height;
       if (d.y > canvas.height) d.y = 0;
 
-      // Glow pass
-      ctx.save();
-      ctx.globalAlpha = d.alpha * 0.4;
-      ctx.filter = 'blur(3px)';
+        ctx.globalAlpha = d.alpha;
       ctx.fillStyle = d.color;
-      ctx.beginPath();
-      ctx.arc(d.x, d.y, d.r * 2.5, 0, Math.PI * 2);
-      ctx.fill();
-      // Crisp dot
-      ctx.globalAlpha = d.alpha;
-      ctx.filter = 'none';
       ctx.beginPath();
       ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
       ctx.fill();
-      ctx.restore();
     });
     animId = requestAnimationFrame(draw);
   }
@@ -330,19 +320,21 @@ document.querySelectorAll('.btn').forEach(btn => {
 
   document.addEventListener('mousemove', e => {
     mouseX = e.clientX; mouseY = e.clientY;
-    dot.style.left = mouseX + 'px';
-    dot.style.top  = mouseY + 'px';
+    dot.style.transform = `translate(${mouseX}px,${mouseY}px)`;
     dot.classList.remove('hidden');
     ring.classList.remove('hidden');
+    if (!lerpActive) { lerpActive = true; requestAnimationFrame(lerpRing); }
   });
 
-  (function lerpRing() {
-    ringX += (mouseX - ringX) * 0.15;
-    ringY += (mouseY - ringY) * 0.15;
-    ring.style.left = ringX + 'px';
-    ring.style.top  = ringY + 'px';
+  let lerpActive = false;
+  function lerpRing() {
+    const dx = mouseX - ringX, dy = mouseY - ringY;
+    ringX += dx * 0.15;
+    ringY += dy * 0.15;
+    ring.style.transform = `translate(${ringX}px,${ringY}px)`;
+    if (Math.abs(dx) < 0.2 && Math.abs(dy) < 0.2) { lerpActive = false; return; }
     requestAnimationFrame(lerpRing);
-  })();
+  }
 
   const interactives = 'a, button, .btn, .faq-q, .integration-item, .service-card, .testimonio-card';
   document.querySelectorAll(interactives).forEach(el => {

@@ -37,9 +37,17 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 // ─── HERO VIDEO ───
+// El video pesa ~4MB: en móvil y conexiones lentas/con ahorro de datos
+// activado nos quedamos con el poster estático en vez de descargarlo.
 (function initHeroVideo() {
   const video = document.getElementById('hero-video');
   if (!video) return;
+
+  const conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const saveData = !!(conn && (conn.saveData || /2g/.test(conn.effectiveType || '')));
+
+  if (isMobile || saveData) return; // se queda con el poster
 
   const tryPlay = () => {
     video.play().then(() => {
@@ -50,13 +58,19 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
   };
 
+  const source = document.createElement('source');
+  source.src = 'assets/hero-video.mp4';
+  source.type = 'video/mp4';
+  video.appendChild(source);
+  video.load();
+
   if (video.readyState >= 3) {
     tryPlay();
   } else {
     video.addEventListener('canplay', tryPlay, { once: true });
   }
 
-  // Pausar cuando el hero sale del viewport (ahorra batería en móvil)
+  // Pausar cuando el hero sale del viewport (ahorra batería)
   const heroSection = document.getElementById('hero');
   if (heroSection) {
     new IntersectionObserver(([entry]) => {
@@ -217,6 +231,7 @@ if (form) {
       if (res.ok) {
         form.style.display = 'none';
         formSuccess.style.display = 'block';
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_id: 'contactForm' });
       } else {
         throw new Error('Error al enviar');
       }

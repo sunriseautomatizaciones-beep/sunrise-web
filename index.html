@@ -9,12 +9,25 @@
   <meta property="og:title" content="Sunrise Automatizaciones — Automatiza tu negocio desde 150€" />
   <meta property="og:description" content="Conectamos tus herramientas y automatizamos tus procesos. Diagnóstico gratuito de 20 minutos." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/images/hero-bg.jpg" />
-  <link rel="canonical" href="https://sunrise-web.vercel.app/" />
+  <meta property="og:url" content="https://sunrise-web-lilac.vercel.app/" />
+  <meta property="og:image" content="https://sunrise-web-lilac.vercel.app/assets/images/hero-bg.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://sunrise-web-lilac.vercel.app/" />
+  <link rel="icon" type="image/png" href="assets/logo-transparent.png" />
+  <link rel="apple-touch-icon" href="assets/logo-transparent.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Google Analytics 4 — sustituye G-XXXXXXXXXX por tu Measurement ID real -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 </head>
 <body>
 
@@ -49,9 +62,7 @@
 
 <!-- ═══════════════════════════════════════ HERO ═══ -->
 <section id="hero">
-  <video id="hero-video" autoplay muted loop playsinline poster="assets/images/hero-bg.png" aria-hidden="true">
-    <source src="assets/hero-video.mp4" type="video/mp4">
-  </video>
+  <video id="hero-video" muted loop playsinline preload="none" poster="assets/images/hero-bg.png" aria-hidden="true"></video>
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="container">
     <div class="hero__inner">
@@ -481,18 +492,18 @@
   <div class="container">
     <div class="section__header reveal">
       <span class="section__tag">Clientes</span>
-      <h2 class="section__title" style="color:var(--white)">Lo que dicen quienes ya automatizaron</h2>
-      <p class="section__sub">Resultados reales de negocios como el tuyo.</p>
+      <h2 class="section__title" style="color:var(--white)">Así ayudamos a negocios como el tuyo</h2>
+      <p class="section__sub">Ejemplos representativos de los procesos que automatizamos.</p>
     </div>
     <div class="testimonios__grid">
       <div class="testimonio-card reveal">
         <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
         <p class="testimonio-text">"Antes tardábamos 3 horas al día gestionando leads a mano. Ahora todo es automático. En menos de una semana teníamos el sistema funcionando. Recuperamos tiempo que no sabíamos que perdíamos."</p>
         <div class="testimonio-author">
-          <div class="testimonio-avatar" style="background:linear-gradient(135deg,#7B2FBE,#9B30FF)">CM</div>
+          <div class="testimonio-avatar" style="background:linear-gradient(135deg,#7B2FBE,#9B30FF)">🤖</div>
           <div class="testimonio-info">
-            <span class="testimonio-name">Carlos M.</span>
-            <span class="testimonio-role">Director comercial · Madrid</span>
+            <span class="testimonio-name">Caso de uso</span>
+            <span class="testimonio-role">Gestión automática de leads · Equipo comercial</span>
           </div>
         </div>
       </div>
@@ -500,10 +511,10 @@
         <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
         <p class="testimonio-text">"Sunrise me creó una landing page que ya aparece en Google y los pacientes llegan solos. Además conectaron el formulario con el CRM. No tengo que tocar nada manualmente. Totalmente recomendable."</p>
         <div class="testimonio-author">
-          <div class="testimonio-avatar" style="background:linear-gradient(135deg,#4B0082,#7B2FBE)">AG</div>
+          <div class="testimonio-avatar" style="background:linear-gradient(135deg,#4B0082,#7B2FBE)">🌐</div>
           <div class="testimonio-info">
-            <span class="testimonio-name">Ana G.</span>
-            <span class="testimonio-role">Dueña de clínica dental · Barcelona</span>
+            <span class="testimonio-name">Caso de uso</span>
+            <span class="testimonio-role">Web + CRM conectado · Clínica dental</span>
           </div>
         </div>
       </div>
@@ -511,10 +522,10 @@
         <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
         <p class="testimonio-text">"Conectamos el CRM con WhatsApp y ahora el equipo recibe cada lead al instante con todos los datos. Recuperamos clientes que antes se perdían porque tardábamos demasiado en responder."</p>
         <div class="testimonio-author">
-          <div class="testimonio-avatar" style="background:linear-gradient(135deg,#9B30FF,#C084FC)">RS</div>
+          <div class="testimonio-avatar" style="background:linear-gradient(135deg,#9B30FF,#C084FC)">💬</div>
           <div class="testimonio-info">
-            <span class="testimonio-name">Roberto S.</span>
-            <span class="testimonio-role">Agencia inmobiliaria · Valencia</span>
+            <span class="testimonio-name">Caso de uso</span>
+            <span class="testimonio-role">CRM + WhatsApp en tiempo real · Inmobiliaria</span>
           </div>
         </div>
       </div>
@@ -714,6 +725,7 @@
 
       <div class="contact__form reveal" style="transition-delay:.15s">
         <form id="contactForm" action="https://formspree.io/f/xpqoolwg" method="POST">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="form-group">
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name" />
@@ -755,6 +767,14 @@
   <p class="sticky-cta__text">¿Listo para <span>ahorrar horas cada semana</span>?</p>
   <a href="#contacto" class="btn btn--purple">Diagnóstico gratis →</a>
 </div>
+
+<a href="https://wa.me/34643327869?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Sunrise%20Automatizaciones"
+  id="whatsapp-float" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"
+  onclick="if(typeof gtag==='function')gtag('event','contact_whatsapp')">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.94.56 3.76 1.51 5.31L2 22l4.92-1.6a9.83 9.83 0 0 0 5.12 1.4h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.83 9.83 0 0 0 12.04 2zm5.83 14.05c-.25.7-1.45 1.34-2 1.43-.51.08-1.16.12-1.87-.12-.43-.14-.98-.32-1.69-.63-2.97-1.28-4.9-4.27-5.05-4.47-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.18.01.43-.07.67.51.25.6.84 2.06.92 2.21.08.15.13.33.03.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.54-.15.15-.3.31-.13.61.17.3.77 1.27 1.65 2.06 1.14 1.01 2.1 1.32 2.4 1.47.3.15.48.13.66-.05.18-.18.74-.86.94-1.16.2-.3.4-.25.66-.15.27.1 1.7.8 1.99.95.3.15.49.22.56.34.07.13.07.74-.18 1.44z"/>
+  </svg>
+</a>
 
 <!-- ═══════════════════════════════════════ FOOTER ═══ -->
 <footer id="privacy">
@@ -828,7 +848,7 @@
     {
       "@type": "Organization",
       "name": "Sunrise Automatizaciones",
-      "url": "https://sunrise-web.vercel.app",
+      "url": "https://sunrise-web-lilac.vercel.app",
       "email": "sunriseautomatizaciones@gmail.com",
       "description": "Automatización de procesos con n8n y creación de páginas web para PYMEs en España.",
       "areaServed": "ES",

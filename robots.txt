@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sunrise-web-lilac.vercel.app/sitemap.xml
+Sitemap: https://sunriseautomatizaciones.com/sitemap.xml
